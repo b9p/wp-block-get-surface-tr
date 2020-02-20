@@ -1,0 +1,30 @@
+div.wp-block-getsurface-tr {
+  background-color: #525c62;
+  background-image: url("/wp-content/plugins/get-surface-wp-block-tr/assets/gfx/block.background.png");
+  background-size: cover;
+  background-position: right bottom;
+  padding: 32px 16px; }
+  div.wp-block-getsurface-tr h1, div.wp-block-getsurface-tr h2, div.wp-block-getsurface-tr h3 {
+    color: #fff !important; }
+  div.wp-block-getsurface-tr h1 {
+    font-size: 1.6em !important;
+    margin: 0 0 32px 72px !important; }
+  div.wp-block-getsurface-tr h2 {
+    font-size: 1.2em !important;
+    margin: 0 !important;
+    border-top: solid 2px #fff;
+    border-top-style: dotted;
+    padding-top: 16px !important; }
+  div.wp-block-getsurface-tr h3 {
+    font-size: 1em !important;
+    margin: 0 !important; }
+  div.wp-block-getsurface-tr .b9p-icon {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 24px;
+    left: 16px; }
+    div.wp-block-getsurface-tr .b9p-icon path {
+      fill: #fff; }
+
+/*# sourceMappingURL=editor.block.map */
