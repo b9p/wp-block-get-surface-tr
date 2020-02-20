@@ -24,6 +24,12 @@ div.wp-block-getsurface-tr {
 		margin: 0 !important;
 	}
 	
+	h4 {
+		font-size: 0.8em !important;
+		color: #fff;
+		font-weight: normal !important;
+	}
+	
 	.b9p-icon {
 		width: 64px;
 		height: 64px;
@@ -32,6 +38,23 @@ div.wp-block-getsurface-tr {
 		left: 16px;
 		path {
 			fill: #fff;
+		}
+	}
+	
+	&.complex-layout-false {
+		.simple {
+			display: block;
+		}
+		.komplex {
+			display: none;
+		}
+	}
+	&.complex-layout-true {
+		.simple {
+			display: none;
+		}
+		.komplex {
+			display: block;
 		}
 	}
 }

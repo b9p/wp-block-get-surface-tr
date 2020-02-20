@@ -18,6 +18,10 @@ div.wp-block-getsurface-tr {
   div.wp-block-getsurface-tr h3 {
     font-size: 1em !important;
     margin: 0 !important; }
+  div.wp-block-getsurface-tr h4 {
+    font-size: 0.8em !important;
+    color: #fff;
+    font-weight: normal !important; }
   div.wp-block-getsurface-tr .b9p-icon {
     width: 64px;
     height: 64px;
@@ -26,5 +30,13 @@ div.wp-block-getsurface-tr {
     left: 16px; }
     div.wp-block-getsurface-tr .b9p-icon path {
       fill: #fff; }
+  div.wp-block-getsurface-tr.complex-layout-false .simple {
+    display: block; }
+  div.wp-block-getsurface-tr.complex-layout-false .komplex {
+    display: none; }
+  div.wp-block-getsurface-tr.complex-layout-true .simple {
+    display: none; }
+  div.wp-block-getsurface-tr.complex-layout-true .komplex {
+    display: block; }
 
 /*# sourceMappingURL=editor.block.map */

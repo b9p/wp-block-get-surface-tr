@@ -9,7 +9,8 @@
 	var __ = wp.i18n.__;
 	var createElement = wp.element.createElement;
 	var registerBlockType = wp.blocks.registerBlockType;
-	
+	var InspectorControls = wp.editor.InspectorControls;
+	var ToggleControl = wp.components.ToggleControl; 	
 	
 	const blockIcon = createElement('svg', 
 		{ 
@@ -24,7 +25,7 @@
 			}
 		)
 	);
-
+	
 	/**
 	 * Register block
 	 *
@@ -37,6 +38,7 @@
 		'getsurface/tr', 
 		{
 			title: 'GET surface - Tarifrechner',
+			description: __( 'Tarifrechner zur Anzeige von Strom-Tarifen' ),
 			icon: blockIcon,
 			category: 'layout',
 			
@@ -50,51 +52,93 @@
 					type: 'string',
 					default: 'Subline goes here...',
 				},
+				applyLayout: {
+					type: 'boolean',
+					default: false,
+				},
 			},
 			
 			edit: function( props ) {
 				
-				function updateSubline(event) {
-					props.setAttributes({
-						subline: event.target.value
-					})
+				const {
+					applyLayout,
+				} = props;	
+				
+				const controls = [
+					createElement(
+						InspectorControls,
+						{},
+						createElement(
+							ToggleControl,
+							{
+								label: __('Complex Layout'),								
+								onChange: ( value ) => {
+									props.setAttributes( { applyLayout: value } );
+									onChangeLayoutSettings();
+								},
+								checked: props.attributes.applyLayout,
+								
+							}
+						),
+					),
+				];			
+				
+				function onChangeLayoutSettings() {
+					console.log(props.attributes.applyLayout);
 				}
-
-				return createElement(
-					'div',
-					{
-						className: props.className,
-					},
-					blockIcon,
+							
+				return [controls,
 					createElement(
-						'h1',
-						null,
-						'GET surface - Tarifrechner'
-					),
-					
-					createElement(
-						wp.editor.RichText , {
-							className: props.className,
-							value: props.attributes.headline,
-							tagName: 'h2',
-							formattingControls: [ 'italic' ],
-							onChange: function( string ) {
-								props.setAttributes( { headline: string } );
-							}
+						'div',
+						{
+							className: props.className + ' complex-layout-' + props.attributes.applyLayout,
 						},
-					),
-					createElement(
-						wp.editor.RichText , {
-							className: props.className,
-							value: props.attributes.subline,
-							tagName: 'h3',
-							formattingControls: [  ],
-							onChange: function( string ) {
-								props.setAttributes( { subline: string } );
-							}
-						},
-					),
-				);
+						blockIcon,
+						createElement(
+							'h1',
+							null,
+							'GET surface - Tarifrechner'
+						),
+						
+						createElement(
+							wp.editor.RichText , {
+								className: props.className,
+								value: props.attributes.headline,
+								tagName: 'h2',
+								formattingControls: [ 'italic' ],
+								onChange: function( string ) {
+									props.setAttributes( { headline: string } );
+								}
+							},
+						),
+						createElement(
+							wp.editor.RichText , {
+								className: props.className,
+								value: props.attributes.subline,
+								tagName: 'h3',
+								formattingControls: [  ],
+								onChange: function( string ) {
+									props.setAttributes( { subline: string } );
+								}
+							},
+						),
+						createElement(
+							'h4',
+							{
+								className: 'simple',
+							},
+							'Tarifrechner mit minimalen Eingaben zur schnellen Suche auf der Website'
+						),
+						createElement(
+							'h4',
+							{ 
+								className: 'komplex',
+							},
+							'Tarifrechner mit komplexen Filtereinstellungen für detailierte Suchen über viele Produkte'
+						),
+					)
+				];
+				
 			},
 
 			save: function( props ) {
