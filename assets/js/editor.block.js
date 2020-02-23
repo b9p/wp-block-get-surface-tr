@@ -41,7 +41,7 @@
 			description: __( 'Tarifrechner zur Anzeige von Strom-Tarifen' ),
 			icon: blockIcon,
 			category: 'layout',
-			example: {blockIcon},
+			example: {},
 			
 			attributes: {
 				headline: {
