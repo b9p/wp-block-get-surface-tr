@@ -47,11 +47,11 @@
 				headline: {
 					type: 'string',
 					selector: 'h2',
-					default: 'Headline goes here...',
+					default: 'Überschrift hier konfigurieren...',
 				},
 				subline: {
 					type: 'string',
-					default: 'Subline goes here...',
+					default: 'Werbetext hier konfigurieren...',
 				},
 				applyLayout: {
 					type: 'boolean',
